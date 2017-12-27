@@ -1,0 +1,58 @@
+import { combineReducers } from 'redux';
+
+const createGameStatus = (state = 'notLoaded', action) => {
+  switch (action.type) {
+    case 'game/CREATE_REQUEST': {
+    return 'initState';
+    }
+    case 'game/CREATE_FAILURE': {
+      return 'failedState';
+    }
+    case 'game/CREATE_SUCCESS': {
+    return 'succeedState';
+    }
+    case 'game/CLEAR': {
+      return 'notLoaded';
+    }
+    default:
+      return state;
+  }
+};
+
+const updateGametatus = (state = 'notLoaded', action) => {
+  switch (action.type) {
+    case 'game/UPDATE_REQUEST': {
+      return 'initState';
+    }
+    case 'game/UPDATE_FAILURE': {
+    return 'failedState';
+    }
+    case 'game/UPDATE_SUCCESS': {
+      return 'succeedState';
+    }
+    default:
+      return state;
+  }
+};
+
+const fetchGameStatus = (state = 'notLoaded', action) => {
+  switch (action.type) {
+    case 'game/FETCH_REQUEST': {
+      return 'initState';
+    }
+    case 'game/FETCH_FAILURE': {
+      return 'failedState';
+    }
+    case 'game/FETCH_SUCCESS': {
+      return 'succeedState';
+    }
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  createGameStatus,
+  updateGametatus,
+  fetchGameStatus
+});

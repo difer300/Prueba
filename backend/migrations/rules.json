@@ -1,0 +1,7 @@
+{
+    "rules": [
+        { "move": "rock", "kills": "scissors"},
+        { "move": "paper", "kills": "rock"},
+        { "move": "scissors", "kills": "paper"}
+    ]
+}

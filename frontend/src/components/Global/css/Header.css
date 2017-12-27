@@ -1,0 +1,37 @@
+.Header {
+  background-color: rgb(66, 170, 182);
+  text-align: center;
+  height: 65px;
+  color: white;
+}
+
+.Logo img {
+  margin: 0 auto;
+  height: 120px;
+  text-align: center;
+}
+
+.Menu{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.Menu li {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.Menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 13px;
+    text-decoration: none;
+}
+
+.Menu li a:hover {
+  background-color: #111;
+}

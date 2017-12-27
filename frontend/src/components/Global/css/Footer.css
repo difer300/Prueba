@@ -1,0 +1,13 @@
+.Footer {
+  background-color: rgb(33, 40, 48);
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.LogoCompnay img {
+  margin: 0 auto;
+  height: auto; 
+  width: auto; 
+  text-align: center;
+}
