@@ -51,8 +51,46 @@ const fetchGameStatus = (state = 'notLoaded', action) => {
   }
 };
 
+const game = (state = [], { type, payload }) => {
+  switch (type) {
+    case 'game/FETCH_SUCCESS': {
+      return payload;
+    }
+    case 'game/UPDATE_SUCCESS': {
+      return state.map(
+        game => (game._id === payload._id ? payload : game)
+      );
+    }
+    case 'game/CREATE_SUCCESS': {
+      return [...state, ...payload];
+    }
+    default:
+      return state;
+  }
+};
+
+const activeGame = (state = [], { type, payload }) => {
+  switch (type) {
+    case 'game/CREATE_SUCCESS': {
+      return payload;
+    }
+    case 'game/UPDATE_SUCCESS': {
+      return state.map(
+        game => (game._id === payload._id ? payload : game)
+      );
+    }
+    case 'game/CLEAR': {
+      return [];
+    }
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   createGameStatus,
   updateGametatus,
-  fetchGameStatus
+  fetchGameStatus,
+  game,
+  activeGame
 });

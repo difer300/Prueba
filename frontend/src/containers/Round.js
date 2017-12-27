@@ -8,10 +8,10 @@ import Round from '../components/Round';
 function mapStateToProps(state) {
   const game = selectorsGame(state);
   const rule = selectorsRule(state);
-
   return {
     createGameStatus: game.getCreateGameStatus(),
     updateGameStatus: game.getUpdateGametatus(),
+    game: game.getActiveGame(),
     rule: rule.getAllRules()
   };
 }

@@ -7,7 +7,7 @@ export default function* fetchGame() {
   yield put(actions.fetchRequest());
   try {
     const response = yield call(apiGame.getAllGames);
-    yield put(actions.fetchSuccess(response.data));
+    yield put(actions.fetchSuccess(response.data.game));
   } catch (error) {
     yield put(actions.fetchFailure({ error: error.toString() }));
   }

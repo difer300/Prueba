@@ -9,7 +9,7 @@ export default function* createGame({ payload }) {
     const response = yield call(apiGame.createGame, {
       game: payload
     });
-    yield put(actions.createSuccess(response.data));
+    yield put(actions.createSuccess(response.data.game));
   } catch (error) {
     yield put(actions.createFailure({ error: error.toString() }));
   }

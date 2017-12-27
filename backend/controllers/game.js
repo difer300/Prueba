@@ -14,7 +14,7 @@ function getGames(req, res) {
 function saveGame(req, res) {
     logger.info(req.method, req.url)
     var newGame = new Game(req.body.game);
-    if(newGame && newGame.player1 && newGame.player2 && newGame.winner){
+    if(newGame && newGame.player1 && newGame.player2){
         newGame.save((err, gameStored) => {
             if(err) res.status(500).send({ message: `Error to save in the data base ${err}`});
             res.status(200).send({ game: gameStored });

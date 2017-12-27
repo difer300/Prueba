@@ -17,7 +17,7 @@ class Register extends Component{
         if (player1 && player2) {
             const { createGame } = this.props;
           if (createGame) {
-            createGame({ player1: player1, player2: player2, winner: player2 });
+            createGame({ player1: player1, player2: player2, winner: "" });
           }
         } else {
             this.setState({ error: 'Please enter the name of each player' });
@@ -27,7 +27,6 @@ class Register extends Component{
     render(){
         const { createGameStatus } = this.props;
         const { error } = this.state;
-        console.log(createGameStatus)
         const redirect =
         createGameStatus !== 'initState' ? (
             ''
