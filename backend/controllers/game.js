@@ -26,7 +26,7 @@ function saveGame(req, res) {
 
 async function updateGame(req, res){
     logger.info(req.method, req.url);
-    let updateGame = req.body;
+    let updateGame = req.body.game;
     if(updateGame && updateGame.player1 && updateGame.player2 && updateGame.winner){
         return Game.findByIdAndUpdate(updateGame.id, updateGame, { new: true }).exec().then(function() {
             res.status(200).send({ game: updateGame });
