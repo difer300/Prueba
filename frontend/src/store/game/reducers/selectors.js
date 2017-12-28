@@ -4,7 +4,7 @@ export default function(globalState) {
     const getAllGame = () => state.game;
     const getFetchGameStatus = () => state.fetchGameStatus;
     const getCreateGameStatus = () => state.createGameStatus;
-    const getUpdateGametatus = () => state.getUpdateGameStatus;
+    const getUpdateGametatus = () => state.updateGametatus;
     return {
       getActiveGame,
       getCreateGameStatus,

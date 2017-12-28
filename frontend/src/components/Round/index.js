@@ -1,5 +1,6 @@
 // Dependencies
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 // Components
 import Score from './../Score';
@@ -38,26 +39,50 @@ class Round extends Component{
         }else{
             return "Tie";
         }
-      };
+    };
+
+    getGameWinner = function (player1, player2, rounds){
+        let winnerPlayer1 = rounds.filter(r => r.winner === player1);
+        let winnerPlayer2 = rounds.filter(r => r.winner === player2);
+        if(winnerPlayer1.length > winnerPlayer2.length){
+            return player1;
+        }else if(winnerPlayer1.length < winnerPlayer2.length){
+            return player2;
+        }else{
+            return "Tie";
+        }
+    }
 
     handleMove(event) {
-        let newRound = this.state.rounds.pop();
+        const { rounds, currentPlayer } = this.state;
+        const { game, updateGame } = this.props;
+        let newRound = rounds.pop();
         let selectedMove = event.move; 
-        if(this.state.currentPlayer === 2){  
-            let winnerRound = this.getRoundWinner(newRound.movePlayer1, selectedMove);
-            newRound = { ...newRound, id: this.state.rounds.length + 1, movePlayer2: selectedMove, winner: winnerRound };
-            this.state.rounds.push(newRound);
-            let nextRound = { id: this.state.rounds.length + 1, winner: "..." }
-            this.state.rounds.push(nextRound);
-            this.setState( prevState => ({
-                ...this.state,
-                currentPlayer: 1,
-                currentRound: this.state.rounds.length
-            }));
-            
+        if(currentPlayer === 2){  
+            let roundWinner = this.getRoundWinner(newRound.movePlayer1, selectedMove);
+            newRound = { id: rounds.length + 1, winner: roundWinner, movePlayer1: newRound.movePlayer1, movePlayer2: selectedMove,  };
+            rounds.push(newRound);
+            let gameWinner = this.getGameWinner(game.player1, game.player2, rounds);
+            if(rounds.length >= 3 && gameWinner !== "Tie"){
+                this.setState( prevState => ({
+                    ...this.state,
+                    winner: gameWinner,
+                    currentPlayer: 1,
+                    currentRound: rounds.length
+                }));
+                updateGame({id: game._id ,player1: game.player1, player2: game.player2, winner: gameWinner, rounds: rounds });
+            }else{
+                let nextRound = { id: rounds.length + 1, winner: "..." }
+                rounds.push(nextRound);
+                this.setState( prevState => ({
+                    ...this.state,
+                    currentPlayer: 1,
+                    currentRound: rounds.length
+                }));
+            }
         }else{
-            newRound = { ...newRound, movePlayer1: selectedMove, winner: "..." };
-            this.state.rounds.push(newRound);
+            newRound = { ...newRound, winner: "...", movePlayer1: selectedMove,  };
+            rounds.push(newRound);
             this.setState( prevState => ({
                 ...this.state,
                 currentPlayer: 2
@@ -65,12 +90,18 @@ class Round extends Component{
         }
     }
 
-
     render(){
-        const { rule, game } = this.props;
+        const { rule, game, updateGameStatus } = this.props;
         const { currentRound, currentPlayer, rounds } = this.state;
+        const redirect =
+        updateGameStatus !== 'initState' ? (
+            ''
+        ) : (
+            <Redirect to="/winner" />
+        );
         return (
         <div className="Round">
+            {redirect}
             <h1>Round { currentRound }</h1>
             <h2 id="currentPlayer">{ currentPlayer === 1 ? game.player1 : game.player2 }</h2>
             {rule.map((rule, index) => (

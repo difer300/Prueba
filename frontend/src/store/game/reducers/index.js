@@ -75,6 +75,7 @@ const activeGame = (state = [], { type, payload }) => {
       return payload;
     }
     case 'game/UPDATE_SUCCESS': {
+      console.log(payload)
       return state.map(
         game => (game._id === payload._id ? payload : game)
       );

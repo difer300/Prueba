@@ -24,12 +24,12 @@ function saveGame(req, res) {
     }
 };
 
-function updateGame(req, res){
+async function updateGame(req, res){
     logger.info(req.method, req.url);
-    let updateGame = req.body.game;
+    let updateGame = req.body;
     if(updateGame && updateGame.player1 && updateGame.player2 && updateGame.winner){
-        return Game.findByIdAndUpdate(updateGame.id, updateGame, {runValidators: true}).exec().then(function() {
-            res.sendStatus(200);
+        return Game.findByIdAndUpdate(updateGame.id, updateGame, { new: true }).exec().then(function() {
+            res.status(200).send({ game: updateGame });
         });
     }else{
         res.status(500).send("The data is required");

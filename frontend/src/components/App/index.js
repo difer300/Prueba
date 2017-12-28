@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { Header, Footer } from '../../components';
 
 // Containers
-import { Register, Round } from '../../containers';
+import { Register, Round, Winner } from '../../containers';
 
 const Container = styled.div`
   display: flex;
@@ -23,6 +23,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Register} />
             <Route exact path="/round" component={Round} />
+            <Route exact path="/winner" component={Winner} />
           </Switch>
         </Container>
         <Footer />

@@ -9,6 +9,7 @@ export default function* updateGame({ payload }) {
     const response = yield call(apiGame.updateGame, {
       game: payload
     });
+    console.log(response)
     yield put(actions.updateSuccess(response.data.game));
   } catch (error) {
     yield put(actions.updateFailure({ error: error.toString() }));
