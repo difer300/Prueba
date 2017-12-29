@@ -7,6 +7,7 @@ function mapStateToProps(state) {
   const game = selectorsGame(state);
   return {
     game: game.getActiveGame(),
+    createGameStatus: game.getCreateGameStatus()
   };
 }
 

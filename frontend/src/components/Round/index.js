@@ -53,7 +53,7 @@ class Round extends Component{
         }
     }
 
-    handleMove(event) {
+    handleMove = event => {
         const { rounds, currentPlayer } = this.state;
         const { game, updateGame } = this.props;
         let newRound = rounds.pop();
