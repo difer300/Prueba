@@ -8,7 +8,7 @@ const Score = ({ rounds }) => {
     return (
     <div className="Score">
         <h1>Score </h1>
-        <table class="score-table">
+        <table className="score-table">
         <tbody>
             <tr>
                 <th>Round</th>

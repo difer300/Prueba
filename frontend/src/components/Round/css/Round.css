@@ -3,7 +3,7 @@
 }
 
 .Round{
-  width: 70%;
+  width: 57%;
 }
 
 h1, h2 {
@@ -32,6 +32,8 @@ image {
 }
 
 .buttonRule {
+  width: 40%;
+  height: 42px;
   font-size: 16px;
   font-weight: bold;
   color: #494d59;
@@ -48,11 +50,9 @@ image {
   -webkit-box-shadow: inset 0 -1px rgba(0, 0, 0, 0.03), 0 1px rgba(0, 0, 0, 0.04);
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.03), 0 1px rgba(0, 0, 0, 0.04);
   margin:5px;
-  display: inline-block;
 }
 
 select {
-  display: block;
   margin:auto;
   margin-bottom: 20px;
   font-size: 16px;

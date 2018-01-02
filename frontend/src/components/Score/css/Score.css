@@ -1,6 +1,12 @@
 
 .Score{
   width: 30%;
+
+}
+
+h1 {
+  margin:auto;
+  text-align: center;
 }
 
 .score-table {
