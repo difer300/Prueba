@@ -1,13 +1,16 @@
 .Footer {
   background-color: rgb(33, 40, 48);
-  margin: 0 auto;
-  text-align: center;
   width: 100%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 3px;
 }
 
-.LogoCompnay img {
-  margin: 0 auto;
+.logoCompany {
+  margin: auto;
   height: auto; 
   width: auto; 
-  text-align: center;
 }

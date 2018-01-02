@@ -8,13 +8,12 @@ const Score = ({ rounds }) => {
     return (
     <div className="Score">
         <h1>Score </h1>
-        <table>
+        <table class="score-table">
         <tbody>
             <tr>
                 <th>Round</th>
                 <th>Winner</th> 
             </tr>
-            
             {rounds.map((round, index) => (
                 <tr key={index}>
                     <th >{ round.id }</th>

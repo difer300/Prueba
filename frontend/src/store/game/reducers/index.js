@@ -67,9 +67,20 @@ const activeGame = (state = [], { type, payload }) => {
   }
 };
 
+const game = (state = [], { type, payload }) => {
+  switch (type) {
+    case 'game/FETCH_SUCCESS': {
+      return payload;
+    }
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   createGameStatus,
   updateGametatus,
   fetchGameStatus,
-  activeGame
+  activeGame,
+  game
 });

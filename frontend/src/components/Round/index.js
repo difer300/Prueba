@@ -1,5 +1,6 @@
 // Dependencies
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 
 // Components
@@ -7,6 +8,8 @@ import Score from './../Score';
 
 // Assets
 import './css/Round.css';
+
+const Container = styled.div`display: flex;`;
 
 class Round extends Component{
     constructor(props){
@@ -100,8 +103,10 @@ class Round extends Component{
             <Redirect to="/winner" />
         );
         return (
-        <div className="Round">
+        <div className="RoundContainer">
             {redirect}
+            <Container>
+            <div className="Round">
             <h1>Round { currentRound }</h1>
             <h2 id="currentPlayer">{ currentPlayer === 1 ? game.player1 : game.player2 }</h2>
             {rule.map((rule, index) => (
@@ -109,7 +114,9 @@ class Round extends Component{
                     {rule.move}
                 </button>
             ))}
+            </div>
             <Score rounds={rounds} />
+            </Container>
         </div>
         );
     };
