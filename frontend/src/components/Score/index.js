@@ -17,7 +17,7 @@ const Score = ({ rounds }) => {
             {rounds.map((round, index) => (
                 <tr key={index}>
                     <th >{ round.id }</th>
-                    <th >{ round.winner }</th>
+                    <th className="winner">{ round.winner }</th>
                 </tr>
             ))}
             

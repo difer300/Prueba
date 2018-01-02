@@ -24,7 +24,7 @@ class Winner extends Component{
         <div className="Winner"> 
             {redirect}
             <h1>We have a WINNER!!</h1>
-            <label id="actualPlayer">{ game.winner } is the new EMPEROR!</label>
+            <label id="actualPlayer" className="winner">{ game.winner } is the new EMPEROR!</label>
             <button className="buttonWinner" type="play" onClick={this.handlePlayAgain}>Play Again</button>
         </div>
         )

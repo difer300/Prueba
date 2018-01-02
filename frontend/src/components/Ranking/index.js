@@ -39,25 +39,27 @@ class Ranking extends Component{
         const games = this.getAllWinners(getAllGame);
         return (
         <div className="Ranking">
-            <h1>Top Player's </h1>
-            <img src={top} alt="top" />
-            <table className="ranking-table">
-            <tbody>
-                <tr>
-                    <th>Ranking</th>
-                    <th>Player</th>
-                    <th>Wins</th> 
-                </tr>
-                {games.map((game, index) => (
-                    <tr key={index}>
-                        <th >{ index+1 }</th>
-                        <th >{ game.winner }</th>
-                        <th >{ game.wins }</th>
+            <div className="Ranking-content">
+                <h1>Top Player's </h1>
+                <img src={top} alt="top" />
+                <table className="ranking-table">
+                <tbody>
+                    <tr>
+                        <th>Ranking</th>
+                        <th>Player</th>
+                        <th>Wins</th> 
                     </tr>
-                ))}
-                
-            </tbody>
-            </table>
+                    {games.map((game, index) => (
+                        <tr key={index}>
+                            <th >{ index+1 }</th>
+                            <th className="winner">{ game.winner }</th>
+                            <th >{ game.wins }</th>
+                        </tr>
+                    ))}
+                    
+                </tbody>
+                </table>
+            </div>
         </div>
         )};
 }

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-
 import { actions as actionGame, selectors as selectorsGame } from '../store/game';
 import Ranking from '../components/Ranking';
 
