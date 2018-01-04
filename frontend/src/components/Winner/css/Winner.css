@@ -1,10 +1,15 @@
 .Winner{
-  width: 40%;
+  width: 50%;
   height: auto;
   background: white;
   margin: 20px;
   border-radius: 20px;
   padding: 20px;
+}
+
+.winnerName{
+  width: 100%;
+  margin: 20px;
 }
 
 .buttonWinner {
@@ -27,4 +32,10 @@
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.03), 0 1px rgba(0, 0, 0, 0.04);
   margin:auto;
   margin-top: 10px;
+  text-align: center;
+}
+
+.winnerImage{
+  height: 100px;
+  text-align: center;
 }

@@ -41,8 +41,8 @@ class Register extends Component{
         <div className="Register">
             {redirect}
             <h1>Enter Player's name</h1>
-            <p>Player 1: <input id='Player1' type='text' name='Player1' onChange={e => this.setState({ player1: e.target.value })}/></p>
-            <p>Player 2: <input id='Player2' type='text' name='Player2' onChange={e => this.setState({ player2: e.target.value })}/></p>
+            <p>Player 1: <input className='player1' type='text' name='player1' onChange={e => this.setState({ player1: e.target.value })}/></p>
+            <p>Player 2: <input className='player2' type='text' name='player2' onChange={e => this.setState({ player2: e.target.value })}/></p>
             <h5>{error}</h5>
             <button className="buttonRegister" type="start" onClick={this.handleStart}>Start</button>
         </div>

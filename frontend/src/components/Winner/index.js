@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 // Assets
 import './css/Winner.css';
+import winner from './images/winner.png';
 
 class Winner extends Component{
 
@@ -23,8 +24,9 @@ class Winner extends Component{
         return (
         <div className="Winner"> 
             {redirect}
+            <img src={winner} alt="winnerImage" className="winnerImage"/>
             <h1>We have a WINNER!!</h1>
-            <label id="actualPlayer" className="winner">{ game.winner } is the new EMPEROR!</label>
+            <label id="actualPlayer" className="winnerName">{ game.winner } is the new EMPEROR!</label>
             <button className="buttonWinner" type="play" onClick={this.handlePlayAgain}>Play Again</button>
         </div>
         )

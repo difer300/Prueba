@@ -41,7 +41,7 @@ class Ranking extends Component{
         <div className="Ranking">
             <div className="Ranking-content">
                 <h1>Top Player's </h1>
-                <img src={top} alt="top" />
+                <img src={top} alt="top" className="top" />
                 <table className="ranking-table">
                 <tbody>
                     <tr>
