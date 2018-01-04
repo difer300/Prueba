@@ -17,7 +17,6 @@ class Round extends Component{
         this.initialState = {
           currentRound: 1,
           currentPlayer: 1,
-          winner: '',
           rounds: []
         };
         this.state = { ...this.initialState };
@@ -63,6 +62,7 @@ class Round extends Component{
         let selectedMove = event.move; 
         if(currentPlayer === 2){  
             let roundWinner = this.getRoundWinner(newRound.movePlayer1, selectedMove);
+            
             newRound = { id: rounds.length + 1, winner: roundWinner, movePlayer1: newRound.movePlayer1, movePlayer2: selectedMove,  };
             rounds.push(newRound);
             let gameWinner = this.getGameWinner(game.player1, game.player2, rounds);

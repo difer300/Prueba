@@ -12,7 +12,6 @@ class Register extends Component{
     }
 
     handleStart = event => {
-        event.preventDefault();
         const { player1, player2 } = this.state;
         if (player1 && player2) {
             if(player1 !== player2){
